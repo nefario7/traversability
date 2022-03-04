@@ -1,12 +1,8 @@
-% Fuzzy Logic Implementation
-clc;
-clear all;
-
-load('sample data/data.mat', 'roughnessScore', 'slopeScore', 'elevModel_labels')
+function [gridMap] = traversability_index_fuzzy(slopeScore, roughnessScore, elevModel_labels)
 
 % minr = min(roughnessScore, [], 'all', 'omitnan');
 % maxr = max(roughnessScore, [], 'all', 'omitnan');
-% 
+%
 % mins = min(slopeScore, [], 'all', 'omitnan');
 % maxs = max(slopeScore, [], 'all', 'omitnan');
 
@@ -44,9 +40,9 @@ gridMap = occupancyMap(rows, cols, 0.3,'grid');
 for i=progress(1:rows)
     for j=1:cols
         param_1 = slopeIndex(:, i, j);
-%         display(param_1);
+        %         display(param_1);
         param_2 = roughIndex(:, i, j);
-%         display(param_2);
+        %         display(param_2);
         param_3 = elevModel_labels(i, j);
         if param_3 == 1
             setOccupancy(gridMap, grid2local(gridMap,[i, j]), 1);
@@ -63,7 +59,7 @@ for i=progress(1:rows)
         end
     end
 end
-
+end
 
 
 
