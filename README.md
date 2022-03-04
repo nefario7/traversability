@@ -20,7 +20,11 @@ SafeForest Traversability Code
 ```
 
 ## Usage
-Run the [main.m](traversability/main.m) file to load point cloud data and generate the grid cloud.
+Run the [main.m](main.m) file to load point cloud data and generate the grid cloud.
 - Grid cloud can be used to find the traversable cloud.
 - Grid cloud can be used to generated Digital Elevation Map and corresponding traversability index
 - Grid cloud can be used to generated Digital Elevation Map and corresponding traversability index (fuzzy)
+
+## Plots
+![heuristic](plots/heuristic.png)
+![fuzzy](plots/fuzzy.png)
