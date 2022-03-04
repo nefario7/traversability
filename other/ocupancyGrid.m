@@ -2,9 +2,9 @@ clc ;
 clear all;
 
 %% Load Data
-filename = 'point data/ground_points.txt';
+filename = '../point data/ground_points.txt';
 groundPoints = readmatrix(filename);
-filename = 'point data/non-ground_points.txt';
+filename = '../point data/non-ground_points.txt';
 nonGroundPoints = readmatrix(filename);
 
 ptCloud = [[groundPoints(:,1:3), zeros(length(groundPoints),1)]; [nonGroundPoints(:,1:3), ones(length(nonGroundPoints),1)]];
