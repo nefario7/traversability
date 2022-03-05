@@ -49,9 +49,9 @@ end
 
 
 %% Digital Elevation Map Index
-disp("Traversability DEM")
-fuzzy=false;
-gridMap = digital_em(gridPtCloud, plot_data, fuzzy);
+% disp("Traversability DEM")
+% fuzzy=false;
+% gridMap = digital_em(gridPtCloud, plot_data, fuzzy);
 
 
 %% Digital Elevation Map Fuzzy Index
