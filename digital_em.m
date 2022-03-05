@@ -67,7 +67,6 @@ else
     figure;
 %     inflate(gridMap, 0.2)
     show(gridMap);
-    legend('High', 'Medium', 'Low')
     title("Fuzzy Grid Map")
 end
 
