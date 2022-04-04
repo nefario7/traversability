@@ -92,7 +92,7 @@ function [gridMap] = traversability_index_fuzzy(slopeScore, roughnessScore, elev
 %     end
 % end
 
-traversability_fis = readfis("variable data/traversability_fis.fis");
+traversability_fis = readfis("variable data/traversability_fis_new.fis");
 disp("Calculating Index")
 [rows, cols] = size(roughnessScore);
 gridMap = occupancyMap(rows, cols, 0.3, 'grid');
@@ -103,7 +103,7 @@ for i=progress(1:rows)
                 r = roughnessScore(i, j);
                 s = slopeScore(i, j);
                 index = evalfis(traversability_fis, [r, s]);
-                setOccupancy(gridMap, grid2local(gridMap,[i, j]), 1-index);
+                setOccupancy(gridMap, grid2local(gridMap,[i, j]), 1 - index);
             else
                 setOccupancy(gridMap, grid2local(gridMap,[i, j]), 1);
             end

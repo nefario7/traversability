@@ -1,4 +1,4 @@
-function [gridPtCloud, gridLabels, gridLabels_mtx] = grid_cloud(ptCloud, plot_data)
+function [gridPtCloud, gridLabels, gridLabels_mtx] = grid_cloud(ptCloud, resolution)
 
 %% Divide point cloud in grids
 gridPtCloud = [];
@@ -14,12 +14,16 @@ y_max = max(ptCloud(:,2));
 
 xLimits = linspace(x_min, x_max, fix(x_max - x_min)); %fix((x_max - x_min)/nGrid));
 yLimits = linspace(y_min, y_max, fix(y_max - y_min)); %fix((y_max - y_min)/nGrid));
+% xLimits = linspace(x_min, x_max, fix((x_max - x_min)/resolution));
+% yLimits = linspace(y_min, y_max, fix((y_max - y_min)/resolution)); 
+% xLimits = linspace(x_min, x_max, 200);
+% yLimits = linspace(y_min, y_max, 200); 
 
-%     disp('Grid Cloud Resolution X: ')
-%     disp((x_max - x_min)/fix(x_max - x_min));
-%
-%     disp('Grid Cloud Resolution Y: ')
-%     disp((y_max - y_min)/fix(y_max - y_min));
+% disp('Grid Cloud Resolution X: ')
+% disp((x_max - x_min)/fix(x_max - x_min));
+% 
+% disp('Grid Cloud Resolution Y: ')
+% disp((y_max - y_min)/fix(y_max - y_min));
 
 if ~isempty(xLimits) && ~isempty(yLimits)
     for k = progress(1:length(xLimits)-1)
@@ -39,7 +43,7 @@ if ~isempty(xLimits) && ~isempty(yLimits)
             idx = idx_x & idx_y;
             gridCloud = ptCloud(idx,:);
 
-            %             if ~isempty(gridCloud) && (size(gridCloud,1)>1)
+            %if ~isempty(gridCloud) && (size(gridCloud,1)>1)
             gridPtCloud = [gridPtCloud; gridCloud];
 
             labels = ones(size(gridCloud,1),1)*nLabels;
@@ -53,12 +57,5 @@ if ~isempty(xLimits) && ~isempty(yLimits)
         end
     end
 end
-
-%     %% Plot - Grid Cloud
-%     if plot_data
-%         figure
-%         pcshow(gridPtCloud(:,1:3), gridLabels)
-%         colormap("lines")
-%     end
 
 end

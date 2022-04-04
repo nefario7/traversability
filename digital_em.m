@@ -37,7 +37,7 @@ roughnessScore(idxRoughnessScore) = 1;
 %     DEM.Z(idxRoughnessScore) = nan;
 if plot_dem_data
     figure
-    imageschs(DEM,R)
+    imageschs(DEM,roughnessScore,'ticklabel','nice','colorbarylabel','Roughness','caxis',[0 1])
 end
 
 
@@ -51,7 +51,7 @@ idxSlopeScore = slopeScore >= pi/4;
 slopeScore(idxSlopeScore) = 1;
 if plot_dem_data
     figure
-    imageschs(DEM,G,'ticklabel','nice','colorbarylabel','Slope [-]','caxis',[0 1])
+    imageschs(DEM,slopeScore,'ticklabel','nice','colorbarylabel','Slope','caxis',[0 1])
 end
 
 
@@ -59,13 +59,11 @@ end
 if ~fuzzy
     gridMap = traversability_index(slopeScore, roughnessScore, elevModel_labels);
     figure;
-    inflate(gridMap, 0.2)
     show(gridMap);
     title("Heuristic Grid Map")
 else
     gridMap = traversability_index_fuzzy(slopeScore, roughnessScore, elevModel_labels);
     figure;
-%     inflate(gridMap, 0.2)
     show(gridMap);
     title("Fuzzy Grid Map")
 end

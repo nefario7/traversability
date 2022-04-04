@@ -1,1 +1,12 @@
 point data/non-ground_points_cut_good_one.txt
+
+# Environment
+.trav
+
+# File Extensions
+*.asv
+*.eps
+
+# Testing
+test_dem.m
+test_fuzzy.m
