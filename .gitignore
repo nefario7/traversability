@@ -1,0 +1,18 @@
+point data
+pilot data
+usrFunctions
+
+# Environment
+.trav
+
+# File Extensions
+*.asv
+*.eps
+
+# Testing
+test_dem.m
+test_fuzzy.m
+working.m
+
+# Data
+plots
