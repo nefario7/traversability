@@ -30,5 +30,5 @@ generate_traversability('pilot data', '45_degree_merged')
 ```
 
 ## Plots
-![heuristic](plots/heuristic.png)
-![fuzzy](plots/fuzzy.png)
+![heuristic](plots/Readme/original.png)
+![fuzzy](plots/Readme/45_deg_merged.png)
