@@ -10,6 +10,7 @@ point data/non-ground_points_cut_good_one.txt
 # Testing
 test_dem.m
 test_fuzzy.m
+working.m
 
 # Data
 pilot data
