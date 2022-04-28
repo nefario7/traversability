@@ -1,4 +1,4 @@
-# Traversability
+# Traversability (MATLAB)
 SafeForest Traversability Code
 
 ## Directory Structure
@@ -15,15 +15,19 @@ SafeForest Traversability Code
 ├── traversable_cloud.m                     # Traversable Cloud Calculation
 ├── traversability_index.m                  # Traversability Index 
 ├── traversability_index_fuzzy.m            # Traversability Index (Fuzzy)
+├── filter_pointcloud.m                     # CSF, SMRF Filtering
+├── generate_traversability.m               # Generate Traversability Map function
+├── trim_cloud.m                            # Point Cloud trimming
 ├── main.m                                  # Main
 └── README.md   
 ```
 
 ## Usage
-Run the [main.m](main.m) file to load point cloud data and generate the grid cloud.
-- Grid cloud can be used to find the traversable cloud.
-- Grid cloud can be used to generated Digital Elevation Map and corresponding traversability index
-- Grid cloud can be used to generated Digital Elevation Map and corresponding traversability index (fuzzy)
+1. In MATLAB add all folders and sub-folders to Path
+2. Use `generate_traersability` function to process point cloud data as :  
+```matlab
+generate_traversability('pilot data', '45_degree_merged')
+```
 
 ## Plots
 ![heuristic](plots/heuristic.png)
