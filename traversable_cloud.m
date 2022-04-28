@@ -1,9 +1,10 @@
-function [traversableCloud, gridObstacle, gridMap] = traversable_cloud(threshold, gridPtCloud, gridLabels, gridLabels_mtx, plot_data)
-
+function [traversableCloud, gridObstacle, gridMap] = traversable_cloud(threshold, gridPtCloud, gridLabels_mtx, plot_data)
+disp("Finding Traversable Grid Blocks")
 % !Try Occupancy Map
 %% Find Traversable and Non-traversable areas in Grid Cloud
 [rows, cols] = size(gridLabels_mtx);
 gridObstacle = ones(length(gridPtCloud),1);
+gridLabels = gridPtCloud(:, 5);
 gridMap = occupancyMap(rows, cols, 0.3, 'grid');
 
 % gridMap = occupancyMap(rows,cols,1,'grid');

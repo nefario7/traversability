@@ -94,6 +94,8 @@ function [gridMap] = traversability_index_fuzzy(slopeScore, roughnessScore, elev
 
 traversability_fis = readfis("variable data/traversability_fis_new.fis");
 disp("Calculating Index")
+roughnessScore = normalize(roughnessScore, 'range');
+slopeScore = normalize(slopeScore, 'range');
 [rows, cols] = size(roughnessScore);
 gridMap = occupancyMap(rows, cols, 0.3, 'grid');
 for i=progress(1:rows)
