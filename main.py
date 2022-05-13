@@ -1,29 +1,21 @@
-import argparse
+import os
 import sys
+import yaml
+import argparse
 
+def read_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", type=str, default="train", help="train or test")
+    parser.add_argument("--config", type=str, default="model_config.yaml", required=True)
 
-def traversability_args():
-    args = argparse.ArgumentParser(description="Traversability")
-    args.add_argument("--process", type=str, required=True, help="Process to run on the data")
-    args.add_argument("--cloud_path", type=str, default="", help="Point Cloud Path")
-    args.add_argument(
-        "--ground_cloud_path", type=str, required="--cloud_path" in sys.argv, default="", help="Filtered Ground Point Cloud Path"
-    )
-    args.add_argument(
-        "--nonground_cloud_path", type=str, required="--cloud_path" in sys.argv, default="", help="Filtered Non-Ground Point Cloud Path"
-    )
-    args = args.parse_args()
-
+    args = parser.parse_args()
     return args
 
+if __name__ == '__main__':
+    args = read_args()
 
-if __name__ == "__main__":
-    args = traversability_args()
+    with open(args.config, 'r') as f:
+        config = yaml.load(f)
 
-    if args.process == "filter":
+    if args.mode == "train":
         pass
-    elif args.process == "index":
-        pass
-    else:
-        print("Invalid process")
-        sys.exit(1)
