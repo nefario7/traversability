@@ -1,24 +1,25 @@
 # Traversability (MATLAB)
-SafeForest Traversability Code
+SafeForest Traversability Code for generating traversability maps. The description of the approaches and the results can be found in the [paper](https://openreview.net/pdf?id=Bbx8xClhG9).
 
 ## Directory Structure
 ```
+├── plots                               # Plots of DEM, Traversability map, etc.
 ├── point data                          # Point Cloud Data
-├── variables data                      # Saved Variable Data
+├── variable data                       # Saved Variable Data
 ├── usrFunctions                        # Dependencies and other functions
 │   ├── topo toolbox
 │   ├── boxCountMoisy
 │   ├── progress
 │   └── clothSimulationFilter
-├── digital_em.m                            # Digital Elevation Map Generation                
+├── digital_em.m                            # Digital Elevation Map Generation     
+├── filter_pointcloud.m                     # CSF, SMRF Filtering
+├── generate_tarversability.m               # Generate Traversability Function
 ├── grid_cloud.m                            # Grid Cloud Generation
-├── traversable_cloud.m                     # Traversable Cloud Calculation
+├── main.m                                  # Main file for experiments
 ├── traversability_index.m                  # Traversability Index 
 ├── traversability_index_fuzzy.m            # Traversability Index (Fuzzy)
-├── filter_pointcloud.m                     # CSF, SMRF Filtering
-├── generate_traversability.m               # Generate Traversability Map function
+├── traversable_cloud.m                     # Traversable Cloud Calculation
 ├── trim_cloud.m                            # Point Cloud trimming
-├── main.m                                  # Main
 └── README.md   
 ```
 
@@ -32,3 +33,6 @@ generate_traversability('pilot data', '45_degree_merged')
 ## Plots
 ![heuristic](plots/Readme/original.png)
 ![fuzzy](plots/Readme/45_deg_merged.png)
+
+## Future Work and other details
+![Presentation](https://docs.google.com/presentation/d/1FjiTaVrTupC7kUFLZzIZoNPIwGBiE9OCnC6yJ0Potgs/edit?usp=sharing)
